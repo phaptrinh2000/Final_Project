@@ -1,0 +1,224 @@
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset=UTF-8>
+<style>
+table.center {
+  margin-left:auto;
+  margin-right:auto;
+}
+body {
+    font-family: 'Acme';font-size: 22px;
+    background-image: url('https://www.pilotpartners.com.au/wp-content/uploads/2019/08/iStock-1001713236-medical-plain.jpg')
+}
+h1 {
+    font-family: 'Acme';font-size: 65px
+}
+.info {
+  background-color: #e7f3fe;
+    height: 200px;
+    width: 500px;
+    margin-left:auto;
+    margin-right:auto;
+    box-shadow: 0 0 10rem 0 rgba(0, 0, 0, .2);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
+
+}
+p {
+  background-color: #e7f3fe;
+    height: 81px;
+    width: 500px;
+    margin-left:auto;
+    margin-right:auto;
+    box-shadow: 0 0 10rem 0 rgba(0, 0, 0, .2);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
+    text-align:left
+
+}
+input[type=number] {
+    padding: 4px 10px;
+    background: #F8F8FF;
+    border: 0 None;
+    {#cursor: pointer;#}
+    -webkit-border-radius: 1px;
+    border-radius: 3px;
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+input[type=submit] {
+    padding:5px 15px;
+    background:#DAF7A6;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-family: 'Acme';font-size: 28px;
+}
+input[type=reset] {
+    padding:5px 15px;
+    background:#F2F5EC;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-family: 'Acme';font-size: 28px;
+}
+</style>
+</head>
+    <body bgcolor= #7EDAFF>
+        <div style="text-align: center;">
+        <h1> SURVIVAL OF A PATIENT PREDICTION </h1>
+        <p><strong>INPUT FORMAT:</strong><br>Enter variables in sequence from top to bottom. The number of variables can be from 1 to 17.
+      </p>
+        <form method="POST", action="{{url_for('predict')}}">
+           <table class="center" style="height:400px;font-size:100%">
+               <tr>
+                   <td>
+                       <b> Diagnosed_Condition : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='Diagnosed_Condition', placeholder="enter a value [1 - 52]", min="1" max="52" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> Patient_Body_Mass_Index : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='Patient_Body_Mass_Index', placeholder="enter a value [17 - 30]", min="17" max="30" step="any" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> DX6 : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='DX6', placeholder="enter a value [0/1]", min="0" max="1" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> Patient_Smoker : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='Patient_Smoker', placeholder="enter a value [0/1]", min="0" max="1" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> Patient_Age : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='Patient_Age', placeholder="enter a value [0 - 90]", min="0" max="90" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> Risk_Index : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='Risk_Index', placeholder="enter a value [1 - 13]", min="1" max="13" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> Patient_Rural_Urban : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='Patient_Rural_Urban', placeholder="enter a value [0/1]", min="0" max="1" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> DX1 : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='DX1', placeholder="enter a value [0/1]", min="0" max="1" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> DX5 : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='DX5', placeholder="enter a value [0/1]", min="0" max="1" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> D : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='D', placeholder="enter a value [0/1]", min="0" max="1" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> DX3 : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='DX3', placeholder="enter a value [0/1]", min="0" max="1" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> A : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='A', placeholder="enter a value [0/1]", min="0" max="1" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> DX4 : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='DX4', placeholder="enter a value [0/1]", min="0" max="1" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> DX2 : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='DX2', placeholder="enter a value [0/1]", min="0" max="1" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> C : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='C', placeholder="enter a value [0/1]", min="0" max="1" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> B : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='B', placeholder="enter a value [0/1]", min="0" max="1" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <b> Number_of_prev_cond : </b>
+                   </td>
+                   <td>
+                       <input type="number", name='Number_of_prev_cond', placeholder="enter a value [1/2/3/4/5]", min="1" max="5" step="1" style="width: 14em;">
+                   </td>
+               </tr>
+           </table><br>
+        <input type="submit" , value='Predict!'>
+        <input type="reset" , value='Reset!'>
+        </form>
+    </div>
+    <div class="info">
+        <p1><strong>OUTPUT:</strong> <br>{{ data }}</p1>
+    </div>
+    </body>
+</html>
